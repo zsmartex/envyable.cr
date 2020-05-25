@@ -49,6 +49,7 @@ module Envyable
     end
 
     private def set_value(key, value)
+      return if @loadable[key.to_s]?
       @loadable[key.to_s] = value.to_s unless value.raw.is_a?(Hash)
     end
   end
